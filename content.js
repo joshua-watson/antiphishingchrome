@@ -1,27 +1,37 @@
-// content.js
-
-// Function to extract email content from the page
 function getEmailContent() {
-    // Assuming the email content is in a specific HTML element
-    const emailElement = document.querySelector('.email-body'); // Replace with actual selector
-    return emailElement ? emailElement.innerText : '';
+  // Extract email content from the page (e.g., Gmail). This is a simplified example.
+  let emailText = document.body.innerText;
+  return emailText;
+}
+
+function preprocessText(text) {
+  // This function should preprocess text similar to the way it was done during training
+  // This might include tokenization or other transformations
+  return tokenizedText; // Returns an array of token IDs
+}
+
+async function detectPhishing() {
+  const emailText = getEmailContent();
+  const tokenizedText = preprocessText(emailText); 
+
+  // Call the server for inference
+  try {
+      const response = await fetch('https://your-server-url.com/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tokenizedText: tokenizedText })
+      });
+
+      const result = await response.json();
+      if (result.is_phishing) {
+          alert('Warning: This email may be a phishing attempt.');
+      } else {
+          alert('This email seems safe.');
+      }
+  } catch (error) {
+      console.error('Error communicating with the server:', error);
+      alert('Could not check the email for phishing due to a server error.');
   }
-  
-  // Send the email content to the background script or popup for analysis
-  chrome.runtime.sendMessage(
-    {type: "checkEmail", content: getEmailContent()},
-    (response) => {
-      console.log(response.status);
-    }
-  );
-  
-  // Optionally, you could listen for results and modify the page
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === "displayResult") {
-      // Display the result on the page
-      const resultElement = document.createElement('div');
-      resultElement.textContent = `Phishing Detection Result: ${message.result}`;
-      document.body.appendChild(resultElement);
-    }
-  });
-  
+}
+
+detectPhishing();
