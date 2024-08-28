@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Phishing Detector</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Tool</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Phishing Email Detector</h1>
-    <button id="detect-button">Detect Phishing</button>
-    <div id="result"></div>
-
+    <div class="container">
+        <div class="header">
+            <h1>Phishing Detection Tool</h1>
+            <img src="images/settings-icon.png" alt="Settings" class="settings-icon">
+        </div>
+        <hr class="divider">
+        <div class="content">
+            <label for="email-content">Email Contents:</label>
+            <input type="text" id="email-content">
+            <div class="likelihood">
+                <span>Likelihood:</span>
+                <span id="likelihood-value">0%</span>
+            </div>
+            <button id="detect-button">Detect Phishing</button>
+        </div>
+    </div>
+    <script src="content.js"></script>
     <script src="popup.js"></script>
 </body>
 </html>
