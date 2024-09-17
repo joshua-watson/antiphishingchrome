@@ -21,7 +21,7 @@ git clone https://github.com/joshua-watson/antiphishingchrome.git
 ```
 
 ### 2. Install Dependencies
-Use Yarn to install all the required dependencies listed in the package.json file:
+Go to the folder /antiphishingchrome within a terminal and use Yarn to install all the required dependencies listed in the package.json file:
 
 
 ```bash
