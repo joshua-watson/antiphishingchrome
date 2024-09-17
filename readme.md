@@ -43,8 +43,26 @@ The extension will now appear in your list of installed Chrome extensions.
 ## Project Structure
 Here's an overview of the project files:
 
-```├── dist/ # Bundled Chrome extension files ├── node_modules/ # Installed dependencies ├── src/ # Source code directory │ ├── background.js # Background script │ ├── content.js # Content script for analyzing email │ ├── popup.js # JavaScript for the popup UI │ ├── popup.html # Popup UI when the extension icon is │ ├── options.js # JavaScript for the options/settings │ ├── options.html # Settings page for the extension │ ├── styles.css # Styles for the popup and options │ ├── tokenizer.json # Tokenizer data used for text │ └── tfjs_model/ # TensorFlow.js model files (model and │ ├── model.json # Model architecture for the neural │ └── group1-shard1of1.bin # Model weights ├── .babelrc # Babel configuration file ├── package.json # Project metadata, dependencies, and ├── webpack.config.js # Webpack configuration for bundling └── README.md # Instructions on how to build and run```
-
+```bash
+├── dist/                       # Bundled Chrome extension files
+├── node_modules/               # Installed dependencies 
+├── src/                        # Source code directory
+│   ├── background.js           # Background script
+│   ├── content.js              # Content script for analyzing email 
+│   ├── popup.js                # JavaScript for the popup UI
+│   ├── popup.html              # Popup UI when the extension icon is 
+│   ├── options.js              # JavaScript for the options/settings 
+│   ├── options.html            # Settings page for the extension
+│   ├── styles.css              # Styles for the popup and options 
+│   ├── tokenizer.json          # Tokenizer data used for text 
+│   └── tfjs_model/             # TensorFlow.js model files (model and 
+│       ├── model.json          # Model architecture for the neural 
+│       └── group1-shard1of1.bin # Model weights
+├── .babelrc                    # Babel configuration file
+├── package.json                # Project metadata, dependencies, and 
+├── webpack.config.js           # Webpack configuration for bundling 
+└── README.md                   # Instructions on how to build and run
+```
 ## How It Works:
 
 ### TensorFlow.js Model:
