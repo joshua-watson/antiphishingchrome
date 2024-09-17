@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Email Phishing Detector</h1>
+    <textarea id="email-content" rows="10" placeholder="Paste email content here..."></textarea>
+    <button id="scan-button">Scan for Phishing</button>
+
+    <div class="result">
+        <p>Prediction: <span id="prediction-value"></span></p>
+        <p>Likelihood: <span id="likelihood-value"></span></p>
+    </div>
+
+    <div id="error-message">Error occurred during scanning.</div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
