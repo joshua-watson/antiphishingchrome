@@ -21,14 +21,20 @@ git clone https://github.com/joshua-watson/antiphishingchrome.git
 ```
 
 ### 2. Install Dependencies
-Use Yarn to install all the required dependencies listed in the package.json file:
+Go to the folder /antiphishingchrome within a terminal and use Yarn to install all the required dependencies listed in the package.json file:
 
 
-yarn install (This will install all necessary packages, including TensorFlow.js and Webpack.)
+```bash
+yarn install
+```
+(This will install all necessary packages, including TensorFlow.js and Webpack.)
 
 ### 3. Build the Project
 
-yarn build (This command uses Webpack to bundle the source files, copy static assets, and place everything in the dist/ folder, which will contain the final version of your Chrome extension.)
+```bash
+yarn build
+```
+(This command uses Webpack to bundle the source files, copy static assets, and place everything in the dist/ folder, which will contain the final version of your Chrome extension.)
 
 ### 4. Load the Extension into Chrome
 Open Google Chrome and navigate to chrome://extensions/.
@@ -43,6 +49,7 @@ The extension will now appear in your list of installed Chrome extensions.
 ## Project Structure
 Here's an overview of the project files:
 
+```bash
 ├── dist/                       # Bundled Chrome extension files
 ├── node_modules/               # Installed dependencies 
 ├── src/                        # Source code directory
@@ -61,7 +68,7 @@ Here's an overview of the project files:
 ├── package.json                # Project metadata, dependencies, and 
 ├── webpack.config.js           # Webpack configuration for bundling 
 └── README.md                   # Instructions on how to build and run
-
+```
 ## How It Works:
 
 ### TensorFlow.js Model:
