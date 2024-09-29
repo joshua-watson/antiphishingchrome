@@ -62,16 +62,16 @@ This ensures the model is available for the extension to use during phishing det
 
 ## 5. Update and Run the API
 1. Update the app.py host IP address to yours.
-2. Go into Command line and use code 
+2. Go into Command line and use code to find your IP address:
 ```bash
 ipconfig
 ```
-3. Then update this line of code in app.py
+3. Then update this line of code in app.py with your IP address (Update 0.0.0.0)
 ```bash
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
 ```
-4. Also update the background.js file with your host address
+4. Also update the background.js file with your host address (Update 0.0.0.0) 
 ```bash
 if (request.action === 'scan-email') {
         fetch('http://0.0.0.0:5000/predict', {  // Replace with your correct IP if needed
