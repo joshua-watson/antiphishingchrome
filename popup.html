@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="images/Logo.png" id="logo-icon" alt="Logo" class="logo-icon">
+            <h1>Phishing Detection Tool</h1>
+            <img src="images/Refresh.png" id="refresh-icon" alt="Refresh" class="refresh-icon">
+            <img src="images/settings-icon.png" id="settings-icon" alt="Settings" class="settings-icon">
+        </div>
+        <hr class="divider">
+        <div class="content">
+            <label for="email-content">Email Contents:</label>
+            <textarea id="email-content" placeholder="Paste email content here"></textarea>
+            <button id="scan-button">Scan Email Contents</button>
+            <hr class="divider"> 
+            <div class="result">
+                <div class="confidence-section">
+                    <p>Confidence</p>
+                    <div class="gauge-container">
+                        <div class="gauge" id="confidence-value">0%</div>
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+                <div class="prediction-section">
+                    <p>Prediction</p>
+                    <div class="prediction-box"> 
+                        <p id="prediction-value">Unknown</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Tool - Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-options"> 
+        <div class="header-options"> 
+            <img src="images/settings-icon.png" id="settings-icon" alt="Settings" class="settings-icon-options">
+            <h1>Settings</h1>
+            <img src="images/Refresh.png" id="refresh-icon" alt="Refresh" class="refresh-icon-options">
+        </div>
+        <hr class="divider-options"> 
+
+        <div class="content-options"> 
+            <label for="threshold">Phishing Detection Threshold:</label>
+            <div class="range-slider-options"> 
+                <input type="range" id="threshold" min="0" max="100" value="50">
+                <span id="threshold-value">50</span>%
+            </div>
+
+            <br>
+            <label for="dark-mode-toggle">Switch to Dark Mode:</label>
+            <label class="switch-options"> 
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider-options"></span> 
+            </label>
+
+            <br><br>
+            <div class="button-container-options"> 
+                <button id="go-back" class="button-options">Go Back</button>
+                <button id="save-button" class="button-options">Save Settings</button>
+            </div>
+        </div>
+    </div>
+    <script src="options.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

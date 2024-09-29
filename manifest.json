@@ -1,33 +1,37 @@
 {
   "manifest_version": 3,
-  "name": "Phishing Email Detector",
+  "name": "Phishing Detection Tool",
   "version": "1.0",
-  "description": "Detects phishing emails using a TensorFlow.js model.",
-  "permissions": ["activeTab", "storage", "scripting"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Phishing Detector"
+    "default_icon": {
+      "16": "images/Logo.png",
+      "48": "images/Logo.png",
+      "128": "images/Logo.png"
+    }
   },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://mail.google.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
   "icons": {
-    "16": "/images/icon16.png",
-    "48": "/images/icon48.png",
-    "128": "/images/icon128.png"
+    "16": "images/Logo.png",
+    "48": "images/Logo.png",
+    "128": "images/Logo.png"
   },
-  "web_accessible_resources": [
-    {
-      "resources": ["tfjs_model/*", "tokenizer.json"],
-      "matches": ["<all_urls>"]
-    }
-  ],
-  "options_page": "options.html"
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false 
+  }
 }
