@@ -1,8 +1,0 @@
-# Node modules
-node_modules/
-
-# Distribution files
-dist/
-
-# Flask directory (if this is not meant to be tracked)
-flask/
