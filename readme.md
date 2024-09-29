@@ -60,7 +60,29 @@ The pre-trained model for phishing detection is too large for GitHub. Download i
 
 This ensures the model is available for the extension to use during phishing detection.
 
-## 5. Run the API
+## 5. Update and Run the API
+1. Update the app.py host IP address to yours.
+2. Go into Command line and use code 
+```bash
+ipconfig
+```
+3. Then update this line of code in app.py
+```bash
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+```
+4. Also update the background.js file with your host address
+```bash
+if (request.action === 'scan-email') {
+        fetch('http://0.0.0.0:5000/predict', {  // Replace with your correct IP if needed
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email_content: request.content })
+        })
+```
+####Then: Run the API 
 1. Open a terminal or use VSCode's integrated terminal.
 2. Navigate to the **PhishingDetect** folder.
 ```bash
