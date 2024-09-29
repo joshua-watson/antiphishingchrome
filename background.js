@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
 
     if (request.action === 'scan-email') {
-        fetch('http://192.168.0.241:5000/predict', {  // Replace with your correct IP if needed
+        fetch('http://0.0.0.0:5000/predict', {  // Replace with your correct IP if needed
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
