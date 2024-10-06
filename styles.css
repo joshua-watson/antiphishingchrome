@@ -1,0 +1,171 @@
+:root {
+    --background-color: #dddddd;
+    --container-background-color: #dddddd;
+    --text-color: #333333;
+    --card-background-color: #eeeeee;
+    --card-title-color: #495057;
+    --icon-color: #007bff;
+    --icon-hover-color: #0056b3;
+    --slider-thumb-color: rgb(13, 119, 240);
+    --slider-track-color: #b6bbb6; /* Dark gray for light mode */
+}
+
+[data-theme='dark'] {
+    --background-color: #2e2e2e;
+    --container-background-color: #2e2e2e;
+    --text-color: #ffffff;
+    --card-background-color: #555555;
+    --card-title-color: #dfdfdf;
+    --icon-color: #cccccc;
+    --icon-hover-color: #ffffff;
+    --slider-thumb-color: rgb(13, 119, 240);
+    --slider-track-color: #aaa; /* Light gray for dark mode */
+}
+
+/* Default styles */
+body {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: var(--container-background-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+/* Enable transitions for smooth theme switching */
+.theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.logo-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.btn-icon {
+    border: none;
+    background: transparent;
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: color 0.2s ease-in-out, transform 0.3s ease;
+}
+
+@keyframes popOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-icon:hover {
+    color: var(--icon-hover-color);
+    animation: popOut 0.4s ease-in-out; /* Trigger pop-out animation when hovered */
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 6px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #007bff 0%, #007bff var(--slider-value, 50%), #b6bbb6 var(--slider-value, 50%), #b6bbb6 100%);
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--slider-thumb-color);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.card {
+    background-color: var(--card-background-color);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.card-title {
+    color: var(--card-title-color);
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.scan-button {
+    background-color: rgb(13, 119, 240);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.scan-button:hover {
+    background-color: rgb(12, 94, 187);
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.form-check-label {
+    color: var(--text-color);
+}
+
+/* Updated from "confidence-value" to "likelihood-value" */
+#likelihood-value {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+#prediction-value {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}

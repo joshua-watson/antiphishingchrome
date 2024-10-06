@@ -56,7 +56,7 @@ Place the entire downloaded repository into a folder called **PhishingDetect**. 
 The extension will now be loaded and available in Chrome.
 
 ## 4. Download the Keras Model from the Google Drive 
-The pre-trained model for phishing detection is too large for GitHub. Download it from this [Google Drive link](https://drive.google.com/file/d/1QyyWVt1OaII-V5KaN7RX2UDwZFFw2ucs/view?usp=drive_link) and place the model files (`phishing_model.keras` file) in the **PhishingDetect** folder. (This model is not the updated one but still performs decently) 
+The pre-trained model for phishing detection is too large for GitHub. Download it from this [Google Drive link](https://drive.google.com/file/d/1QyyWVt1OaII-V5KaN7RX2UDwZFFw2ucs/view?usp=drive_link) and place the model files (`phishing_model.keras` file) in the **PhishingDetect** folder. Updated Models are there, there are 5 models for the different thresholds for the detection tool.
 
 This ensures the model is available for the extension to use during phishing detection.
 

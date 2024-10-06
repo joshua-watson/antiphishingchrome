@@ -1,0 +1,50 @@
+2024-10-06 19:54:45,744 INFO: Threshold set to: 0.0%
+2024-10-06 19:54:45,744 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 19:54:46,107 INFO: Prediction: Legitimate
+2024-10-06 19:54:46,107 INFO: Likelihood: 0.02%
+2024-10-06 19:54:46,107 INFO: Request processing time: 0.36348557472229004 seconds
+2024-10-06 20:00:43,351 INFO: Threshold set to: 0.0%
+2024-10-06 20:00:43,352 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 20:00:43,500 INFO: Prediction: Legitimate
+2024-10-06 20:00:43,500 INFO: Likelihood: 30.07%
+2024-10-06 20:00:43,501 INFO: Request processing time: 0.14960002899169922 seconds
+2024-10-06 20:00:46,406 INFO: Threshold set to: 0.0%
+2024-10-06 20:00:46,406 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 20:00:46,554 INFO: Prediction: Legitimate
+2024-10-06 20:00:46,554 INFO: Likelihood: 30.07%
+2024-10-06 20:00:46,554 INFO: Request processing time: 0.1482982635498047 seconds
+2024-10-06 20:00:49,335 INFO: Threshold set to: 0.0%
+2024-10-06 20:00:49,335 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 20:00:49,489 INFO: Prediction: Legitimate
+2024-10-06 20:00:49,490 INFO: Likelihood: 30.07%
+2024-10-06 20:00:49,490 INFO: Request processing time: 0.15469980239868164 seconds
+2024-10-06 20:07:10,177 INFO: Threshold set to: 25.0%
+2024-10-06 20:07:10,177 INFO: Model used for processing: phishing_cnn_lstm_model_25.keras
+2024-10-06 20:07:10,453 INFO: Prediction: Legitimate
+2024-10-06 20:07:10,454 INFO: Likelihood: 0.02%
+2024-10-06 20:07:10,454 INFO: Request processing time: 0.2770833969116211 seconds
+2024-10-06 20:07:39,868 INFO: Threshold set to: 50.0%
+2024-10-06 20:07:39,868 INFO: Model used for processing: phishing_cnn_lstm_model_50.keras
+2024-10-06 20:07:40,144 INFO: Prediction: Legitimate
+2024-10-06 20:07:40,144 INFO: Likelihood: 0.19%
+2024-10-06 20:07:40,144 INFO: Request processing time: 0.2758049964904785 seconds
+2024-10-06 20:07:56,385 INFO: Threshold set to: 75.0%
+2024-10-06 20:07:56,385 INFO: Model used for processing: phishing_cnn_lstm_model_75.keras
+2024-10-06 20:07:56,671 INFO: Prediction: Legitimate
+2024-10-06 20:07:56,671 INFO: Likelihood: 0.01%
+2024-10-06 20:07:56,671 INFO: Request processing time: 0.285628080368042 seconds
+2024-10-06 20:18:52,295 INFO: Threshold set to: 0.0%
+2024-10-06 20:18:52,295 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 20:18:52,593 INFO: Prediction: Legitimate
+2024-10-06 20:18:52,593 INFO: Likelihood: 30.07%
+2024-10-06 20:18:52,593 INFO: Request processing time: 0.29909181594848633 seconds
+2024-10-06 20:20:25,293 INFO: Threshold set to: 0.0%
+2024-10-06 20:20:25,293 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 20:20:25,439 INFO: Prediction: Legitimate
+2024-10-06 20:20:25,439 INFO: Likelihood: 12.73%
+2024-10-06 20:20:25,439 INFO: Request processing time: 0.14638018608093262 seconds
+2024-10-06 20:20:35,020 INFO: Threshold set to: 0.0%
+2024-10-06 20:20:35,020 INFO: Model used for processing: phishing_cnn_lstm_model_0.keras
+2024-10-06 20:20:35,174 INFO: Prediction: Phishing
+2024-10-06 20:20:35,174 INFO: Likelihood: 99.15%
+2024-10-06 20:20:35,174 INFO: Request processing time: 0.15400195121765137 seconds

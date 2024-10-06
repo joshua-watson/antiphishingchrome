@@ -1,33 +1,32 @@
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.action === 'paste-text') {
-        // Save the copied text to chrome storage
-        chrome.storage.local.set({ pastedText: request.content });
-    }
-
     if (request.action === 'scan-email') {
-        fetch('http://0.0.0.0:5000/predict', {  // Replace with your correct IP if needed
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email_content: request.content })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Send the result back to popup.js
-            sendResponse({ result: data });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            sendResponse({ result: { prediction: 'Error', confidence: 0 } });
+        const emailContent = request.content;
+
+        // Get the threshold value from Chrome storage
+        chrome.storage.local.get('threshold', function (data) {
+            const threshold = data.threshold || 0;  // Default to 0 if no threshold is set
+
+            // Send the email content and threshold to the Flask API
+            fetch('http://192.168.0.241:5000/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email_content: emailContent, threshold: threshold }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Send the prediction result back to popup.js
+                    sendResponse({ result: data });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    sendResponse({ error: 'Failed to scan the email content' });
+                });
         });
 
-        return true;  // Required to keep the sendResponse function valid after async
+        // Return true to indicate asynchronous response
+        return true;
     }
 
     // Open the popup and trigger the scan

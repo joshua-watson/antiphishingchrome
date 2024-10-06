@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phishing Detection Tool - Settings</title>
-    <link rel="stylesheet" href="style.css">
+    <link href = "node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
+    <script src="options.js"></script>
 </head>
+
 <body>
-    <div class="container-options"> 
-        <div class="header-options"> 
-            <img src="images/settings-icon.png" id="settings-icon" alt="Settings" class="settings-icon-options">
-            <h1>Settings</h1>
-            <img src="images/Refresh.png" id="refresh-icon" alt="Refresh" class="refresh-icon-options">
+    <div class="container">
+        <div class="header d-flex justify-content-between align-items-center">
+            <h1 class="fs-5 fw-bold">Settings</h1>
+            <div class="icon-container d-flex align-items-center">
+                <button id="back-icon" class="btn-icon me-2">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                <button id="refresh-icon" class="btn-icon">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+            </div>
         </div>
-        <hr class="divider-options"> 
-
-        <div class="content-options"> 
-            <label for="threshold">Phishing Detection Threshold:</label>
-            <div class="range-slider-options"> 
-                <input type="range" id="threshold" min="0" max="100" value="50">
-                <span id="threshold-value">50</span>%
-            </div>
-
-            <br>
-            <label for="dark-mode-toggle">Switch to Dark Mode:</label>
-            <label class="switch-options"> 
-                <input type="checkbox" id="dark-mode-toggle">
-                <span class="slider-options"></span> 
-            </label>
-
-            <br><br>
-            <div class="button-container-options"> 
-                <button id="go-back" class="button-options">Go Back</button>
-                <button id="save-button" class="button-options">Save Settings</button>
-            </div>
+        <div class="mb-4">
+            <label for="threshold" class="form-label fw-semibold">Phishing Detection Threshold:</label>
+            <input type="range" class="slider" id="threshold" min="0" max="100" value="0"> <!-- Default starts at 0 -->
+            <span id="threshold-value" class="fs-5 ms-2">0</span>%
+        </div>              
+        <div class="form-check form-switch mb-3">
+            <input class="form-check-input" type="checkbox" id="dark-mode-toggle">
+            <label class="form-check-label" for="dark-mode-toggle">Switch to Dark Mode</label>
+        </div>
+        <div class="button-container d-flex justify-content-between">
+            <button id="go-back" class="btn btn-secondary">Go Back</button>
+            <button id="save-button" class="btn btn-primary">Save Settings</button>
         </div>
     </div>
-    <script src="options.js"></script>
-    <script src="popup.js"></script>
+    
+    
 </body>
+
 </html>
