@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             const threshold = data.threshold || 0;  // Default to 0 if no threshold is set
 
             // Send the email content and threshold to the Flask API
-            fetch('http://192.168.0.241:5000/predict', {
+            fetch('http://0.0.0.0:5000/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
