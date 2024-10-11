@@ -5,7 +5,7 @@ let uniqueTextSet = new Set();  // Set to track unique pieces of text
 
 // Listen for ` (backtick) key press
 document.addEventListener('keydown', function (event) {
-    if (event.key === '`') {
+    if (event.key === '`') {  
         isBacktickPressed = true;
     }
 });
@@ -24,7 +24,7 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// Highlight elements when hovering while holding ` (backtick)
+// Highlight elements when hovering while holding `
 document.addEventListener('mouseover', function (event) {
     if (isBacktickPressed) {
         let target = event.target;
@@ -33,7 +33,8 @@ document.addEventListener('mouseover', function (event) {
             highlightedElements.add(target);  // Add element to Set to avoid duplication
         }
     }
-});
+}, { passive: true });  // Adding { passive: true }
+
 
 // Copy highlighted content when ` + Click is pressed
 document.addEventListener('click', function (event) {
@@ -83,7 +84,7 @@ function isTextElement(element) {
     const tagName = element.tagName.toLowerCase();
 
     // Focus on key text-based elements like paragraphs, headers, and list items
-    const allowedTags = ['p', 'a', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    const allowedTags = ['p', 'span', 'div', 'a', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
     // Expanded excluded non-text elements
     const excludedTags = [
@@ -108,3 +109,4 @@ function isTextElement(element) {
 
     return elementIsVisible;
 }
+
