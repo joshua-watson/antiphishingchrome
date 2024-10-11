@@ -1,4 +1,10 @@
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.action === 'paste-text') {
+        // Save the copied text to chrome storage
+        console.log('Saving pasted text:', request.content);
+        chrome.storage.local.set({ pastedText: request.content });
+    }
+
     if (request.action === 'scan-email') {
         const emailContent = request.content;
 
@@ -16,6 +22,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log('Prediction result received:', data);
                     // Send the prediction result back to popup.js
                     sendResponse({ result: data });
                 })
@@ -31,6 +38,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
     // Open the popup and trigger the scan
     if (request.action === 'open-popup-and-scan') {
+        console.log('Opening popup and triggering scan');
         chrome.action.openPopup(() => {
             chrome.runtime.sendMessage({ action: 'trigger-scan' });  // Trigger scan in popup.js
         });
