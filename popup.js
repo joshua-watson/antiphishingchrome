@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
+     // Load the pasted text from storage when the popup is opened
+     chrome.storage.local.get('pastedText', function (data) {
+        if (data.pastedText) {
+            document.getElementById('email-content').value = data.pastedText;
+            chrome.storage.local.remove('pastedText');  // Clear storage after pasting
+        }
+    });
+    
     // Load and apply dark mode setting
     let isDarkMode = false; // Keep track of dark mode state
     chrome.storage.sync.get(['darkMode'], function (data) {
@@ -8,42 +16,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+   
+
     // Handle "Scan Email" button click
-    // Handle "Scan Email" button click
-document.getElementById('scan-button').addEventListener('click', function () {
-    const emailContent = document.getElementById('email-content').value;
+    document.getElementById('scan-button').addEventListener('click', function () {
+        const emailContent = document.getElementById('email-content').value;
 
-    // Send the email content to the background script for model processing
-    chrome.runtime.sendMessage({ action: 'scan-email', content: emailContent }, function (response) {
-        const prediction = response.result.prediction;
-        const likelihood = response.result.likelihood;  // Use 'likelihood' instead of 'confidence'
+        // Send the email content to the background script for model processing
+        chrome.runtime.sendMessage({ action: 'scan-email', content: emailContent }, function (response) {
+            const prediction = response.result.prediction;
+            const likelihood = response.result.likelihood;  // Use 'likelihood' instead of 'confidence'
 
-        const predictionElement = document.getElementById('prediction-value');
-        const likelihoodElement = document.getElementById('likelihood-value');  // Adjusted for likelihood
+            const predictionElement = document.getElementById('prediction-value');
+            const likelihoodElement = document.getElementById('likelihood-value');  // Adjusted for likelihood
 
-        // Update prediction and likelihood values
-        predictionElement.innerText = prediction;
-        likelihoodElement.innerText = `${likelihood.toFixed(2)}%`;
+            // Update prediction and likelihood values
+            predictionElement.innerText = prediction;
+            likelihoodElement.innerText = `${likelihood.toFixed(2)}%`;
 
-        // Remove existing color classes from prediction and likelihood elements
-        predictionElement.classList.remove('text-info', 'text-success', 'text-danger');
-        likelihoodElement.classList.remove('text-info', 'text-success', 'text-danger');
-
-        // Change color based on prediction result and dark mode state
-        if (prediction === 'Phishing') {
-            predictionElement.style.color = isDarkMode ? '#ff6666' : 'red'; // Lighter red for dark mode
-            likelihoodElement.style.color = isDarkMode ? '#ff6666' : 'red';
-        } else if (prediction === 'Legitimate') {
-            predictionElement.style.color = isDarkMode ? '#66ff66' : 'green'; // Lighter green for dark mode
-            likelihoodElement.style.color = isDarkMode ? '#66ff66' : 'green';
-        } else {
-            predictionElement.style.color = ''; // Default color for other cases
-            likelihoodElement.style.color = ''; 
-        }
+            // Change color based on prediction result and dark mode state
+            if (prediction === 'Phishing') {
+                predictionElement.style.color = isDarkMode ? '#ff6666' : 'red'; // Lighter red for dark mode
+                likelihoodElement.style.color = isDarkMode ? '#ff6666' : 'red';
+            } else if (prediction === 'Safe') {
+                predictionElement.style.color = isDarkMode ? '#66ff66' : 'green'; // Lighter green for dark mode
+                likelihoodElement.style.color = isDarkMode ? '#66ff66' : 'green';
+            } else {
+                predictionElement.style.color = ''; // Default color for other cases
+                likelihoodElement.style.color = '';
+            }
+        });
     });
-});
-
-    
 
     // Handle clicking on the settings icon to navigate to options.html
     document.getElementById('settings-icon').addEventListener('click', function () {
