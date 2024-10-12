@@ -111,31 +111,37 @@ The **Phishing Detection Tool** is designed to help you detect whether email con
 ### 1. Open the Web Page Containing the Email Content:
 Navigate to the page where the email content you wish to scan is located.
 
-### 2. Highlight Email Contents Using the Backtick Key (`):
+### 2. Set the Phishing Detection Threshold:
+- Open the extension settings by clicking on the settings icon.
+- Use the **threshold slider** to adjust the sensitivity of the phishing detection between **0% and 100%**.
+- Click **"Save"** to apply the selected threshold setting.
+
+### 3. Highlight Email Contents Using the Backtick Key (`):
 - **Press and Hold** the **` (backtick)** key on your keyboard.
-- **Hover your mouse** over the email content you want to scan. 
+- **Hover your mouse** over the email content you want to scan.
 - The content will be highlighted with an orange border.
 - **Left-Click** on the highlighted content. A prompt will appear notifying you that the content has been copied to the Phishing Detection Tool.
 
-### 3. Confirm the Copy Action:
+### 4. Confirm the Copy Action:
 - A pop-up will confirm the email content has been successfully copied.
 - **Click "OK"** on the pop-up to proceed.
 
-### 4. Open the Phishing Detection Tool Extension:
+### 5. Open the Phishing Detection Tool Extension:
 - After confirming the copy action, the Phishing Detection Tool extension will automatically open.
 
-### 5. Paste Email Content:
+### 6. Paste Email Content:
 - The copied email content should automatically appear in the **Email Contents** box within the extension.
 
-### 6. Scan the Email Content:
+### 7. Scan the Email Content:
 - Press the **"Scan Email Contents"** button to send the email content for scanning.
 
-### 7. Wait for the Results:
+### 8. Wait for the Results:
 - The tool will send the email content to the Flask API, which processes the text and returns a **Confidence Percentage** and a **Prediction**.
 
-### 8. View the Results:
+### 9. View the Results:
 - The **Confidence Percentage** will indicate how sure the tool is about its classification.
 - The **Prediction** will either show **"Phishing"** (in red) or **"Safe"** (in green) based on the email content.
+
 
 ---
 
@@ -143,8 +149,8 @@ Navigate to the page where the email content you wish to scan is located.
 
 - **Refresh**: Click the refresh icon in the top-right corner of the extension to reload the tool.
 - **Settings**: Click the gear icon to access the settings, where you can adjust preferences like the Phishing Detection Threshold.
-- **Threshold(NOT WORKING)**: Slider is for setting the threshold of the model performance
-- **Dark Mode(NOT WORKING)**: This switch will switch the appearance of the application from light or dark mode.
+- **Threshold**: Slider is for setting the threshold of the model performance where it will select out of 5 trained models.
+- **Dark Mode**: This switch will switch the appearance of the application from light or dark mode of the Phishing Detection Tool.
 
 The **Phishing Detection Tool** offers a streamlined way to check for phishing threats within email content while browsing the web. Just follow these simple steps to safeguard your inbox.
 
