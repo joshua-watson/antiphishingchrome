@@ -6,6 +6,7 @@ let uniqueTextSet = new Set();  // Set to track unique pieces of text
 // Listen for ` (backtick) key press
 document.addEventListener('keydown', function (event) {
     if (event.key === '`') {  
+        console.log("Backtick pressed");
         isBacktickPressed = true;
     }
 });
@@ -13,6 +14,7 @@ document.addEventListener('keydown', function (event) {
 // Listen for ` (backtick) key release
 document.addEventListener('keyup', function (event) {
     if (event.key === '`') {
+        console.log("Backtick released");
         isBacktickPressed = false;
     }
 });
@@ -21,20 +23,22 @@ document.addEventListener('keyup', function (event) {
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {  // Check for ESC key
         clearHighlighting();  // Clear highlights when ESC is pressed
+        console.log("ESC pressed, highlights cleared");
     }
 });
 
-// Highlight elements when hovering while holding `
+// Highlight elements when hovering while holding ` (backtick)
 document.addEventListener('mouseover', function (event) {
     if (isBacktickPressed) {
         let target = event.target;
-        if (target && isTextElement(target) && !highlightedElements.has(target)) {
+        // Remove the `isTextElement` check for now to see if all elements can be highlighted
+        if (!highlightedElements.has(target)) {
+            console.log("Hovering over element:", target);  // Log the element being hovered
             target.style.outline = '2px solid orange';  // Highlight element
             highlightedElements.add(target);  // Add element to Set to avoid duplication
         }
     }
 }, { passive: true });  // Adding { passive: true }
-
 
 // Copy highlighted content when ` + Click is pressed
 document.addEventListener('click', function (event) {
@@ -45,6 +49,7 @@ document.addEventListener('click', function (event) {
         // Gather text from all highlighted elements
         highlightedElements.forEach(element => {
             let elementText = element.innerText.trim();
+            console.log("Element text:", elementText);  // Log the text content of the element
 
             // Check if text already exists in the set to avoid duplicates
             if (elementText && !uniqueTextSet.has(elementText)) {
@@ -54,6 +59,7 @@ document.addEventListener('click', function (event) {
         });
 
         if (copiedText) {
+            console.log("Copied text:", copiedText);  // Log the copied text
             alert('Highlighted text sent for checking.');
 
             // Send the copied text (email content) to the background script
@@ -77,6 +83,7 @@ function clearHighlighting() {
     });
     highlightedElements.clear();  // Clear the Set
     isBacktickPressed = false;  // Ensure state is reset
+    console.log("Highlights cleared");
 }
 
 // Function to determine if an element is text-based
@@ -109,4 +116,3 @@ function isTextElement(element) {
 
     return elementIsVisible;
 }
-
